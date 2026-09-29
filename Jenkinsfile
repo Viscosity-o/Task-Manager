@@ -11,20 +11,21 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                sh 'npm install'
+                sh 'export PATH=/home/administrator/.nvm/versions/node/v22.23.3/bin:$PATH && npm install'
             }
         }
 
         stage('Build') {
             steps {
-                sh 'npm run build'
+                sh 'export PATH=/home/administrator/.nvm/versions/node/v22.23.3/bin:$PATH && npm run build'
             }
         }
 
         stage('Automated Testing') {
             steps {
-                sh 'npm test'
+                sh 'export PATH=/home/administrator/.nvm/versions/node/v22.23.3/bin:$PATH && npm test'
             }
         }
     }
 }
+
